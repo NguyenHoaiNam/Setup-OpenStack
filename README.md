@@ -1,18 +1,20 @@
 # Setup-OpenStack
 ## DOC hướng dẫn cài đặt OpenStack bằng tiếng việt và có giải thích các bước trong quá trình cài đặt
 [Mục lục]
+
 [1. Lời mở đâu](#lmd)
 
 [2. Chuẩn bị mô hình](#cbmh)
-	[a. Thông tin cấu hình máy](#ttch)
+
+- [a. Thông tin cấu hình máy](#ttch)
 	
-	[b. Dựng mô hình cài đặt](#dmhcd)
+- [b. Dựng mô hình cài đặt](#dmhcd)
 	
-	[c. Đổi các thông số cần thiết](#ttct)
+- [c. Đổi các thông số cần thiết](#ttct)
 	
-	[d. Cài đặt gói NTP](#ntp)
+- [d. Cài đặt gói NTP](#ntp)
 	
-	[e. Cài đặt gói Openstack packet](packet)
+- [e. Cài đặt gói Openstack packet](packet)
 <a name="lmd"></a>
 ### 1. Lời mở đầu
 Xin chào các bạn. Hôm nay tôi sẽ viết bài nói về quá trình cài đặt OpenStack bản Juno trên mô hình 3 node. Và được LAB trên môi trường VMware
