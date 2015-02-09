@@ -1,21 +1,37 @@
 # Setup-OpenStack
 ## DOC hướng dẫn cài đặt OpenStack bằng tiếng việt và có giải thích các bước trong quá trình cài đặt
 [Mục lục]
+[1. Lời mở đâu](#lmd)
 
+[2. Chuẩn bị mô hình](#cbmh)
+	[a. Thông tin cấu hình máy](#ttch)
+	
+	[b. Dựng mô hình cài đặt](#dmhcd)
+	
+	[c. Đổi các thông số cần thiết](#ttct)
+	
+	[d. Cài đặt gói NTP](#ntp)
+	
+	[e. Cài đặt gói Openstack packet](packet)
+<a name="lmd"></a>
 ### 1. Lời mở đầu
 Xin chào các bạn. Hôm nay tôi sẽ viết bài nói về quá trình cài đặt OpenStack bản Juno trên mô hình 3 node. Và được LAB trên môi trường VMware
+<a name='cbmh'></a>
 ### 2. Chuẩn bị mô hình
+<a name="ttch"></a>
 #### a. Thông tin cấu hình máy
 Đầu tiên các bạn xác định thông số cấu hình tối thiểu cho máy ảo cho 3 node
 - Node controller : Ram 2G
 - Node network :    Ram 1G
 - Node compute :    Ram 4G
 
+<a name="dmhcd"></a>
 #### b. Dựng mô hình cài đặt
 Bước tiếp theo các bạn cần dưng 3 node theo thông số đã được chọn và tạo được mô hình như sau:
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/GPih2OH.png" alt="" id="screenshot-image">
 
+<a name="ttct"></a>
 #### c. Đổi các thông số cần thiết
 Thêm một bước trong quá trình cài đặt rất quan trong là các bạn hãy chỉnh sửa file host trong các node theo file sau:
 ```
@@ -28,7 +44,8 @@ Thêm một bước trong quá trình cài đặt rất quan trong là các bạ
 
 Sau đó các bạn hay đứng trên các node để ping giữa các node để đảm bảo chắc chắn rằng các node đã được thông với nhau
 
-#### c. Cài gói NTP
+<a name="ntp"></a>
+#### d. Cài gói NTP
 Mục địch của việc cài gói NTP để đảm bảo việc đồng bộ thời gian giữa các node với nhau. Nếu thời gian không được đồng bộ thì các bạn cũng biết rồi đó, hệ thống của chúng ta sẽ die ngay lập tức
 
 Trên tất các các node dùng lệnh sau để tải gói NTP về:
@@ -67,7 +84,8 @@ Trên các node còn lại hiện ra như sau thì các bạn đã làm đúng
 
 <img class="image__pic js-image-pic" src="http://i.imgur.com/3GnDUOQ.png" alt="" id="screenshot-image">
 
-#### d. Cài đặt gói Openstack packet
+<a name="packet"></a>
+#### e. Cài đặt gói Openstack packet
 Cài đặt gói OpenStack packet ( thực hiện trên tất cả các Node).Trong quá trình cài đặt OPENSTACK chúng ta cần cài đặt bước 3 để quá trình cài đặt OPENSTACK được thành công
 	```
 apt-get install ubuntu-cloud-keyring
@@ -80,7 +98,7 @@ Sau đó update Ubuntu
 ```
 apt-get update && apt-get dist-upgrade
 ```
-#### e. Cài đặt Database ( *thực hiện trên node Controller*)
+#### f. Cài đặt Database ( *thực hiện trên node Controller*)
 
 Ta cần cài đặt DATABASE cho hệ thống để lưu trữ thông tin
 	# apt-get install mariadb-server python-mysqldb
